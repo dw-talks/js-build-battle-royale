@@ -1,0 +1,7 @@
+# project folders
+node_modules/
+build/
+dist/
+
+# editor
+*.swp

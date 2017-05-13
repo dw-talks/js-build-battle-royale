@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html enc="utf8">
+    <head>
+        <title>Breakout | By David Wesst</title>
+
+        <link rel="stylesheet", href="index.css" /> 
+    </head>
+    <body>
+        <h1>Breakout by David Wesst</h1>
+        <canvas id="viewport" width="480" height="320"></canvas>
+
+        <script src="system.js"></script>
+        <script>
+            System.import('breakout.js')
+                .then((game)=> {
+                    game.breakout.run();
+                });
+        </script>
+    </body>
+</html>
