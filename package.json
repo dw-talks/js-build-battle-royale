@@ -5,7 +5,9 @@
   "main": "gulpfile.js",
   "scripts": {
     "build:gulp": "gulp build",
-    "serve:gulp": "gulp serve"
+    "serve:gulp": "gulp serve",
+    "build:webpack": "./node_modules/.bin/webpack --progress --color --display-error-details",
+    "serve:webpack": "./node_modules/.bin/webpack-dev-server --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -15,10 +17,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-plugin-transform-es2015-modules-systemjs": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.4.0",
     "browser-sync": "^2.18.8",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "css-loader": "^0.28.1",
+    "eslint-loader": "^1.7.1",
+    "extract-text-webpack-plugin": "^2.1.0",
     "grunt": "^1.0.1",
     "grunt-babel": "^6.0.0",
     "grunt-browser-sync": "^2.2.0",
@@ -34,7 +42,14 @@
     "gulp-eslint": "^3.0.1",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",
+    "http-server": "^0.10.0",
     "load-grunt-tasks": "^3.5.2",
-    "systemjs": "^0.20.12"
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.17.0",
+    "systemjs": "^0.20.12",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5",
+    "webpack-system-register": "^1.5.0"
   }
 }

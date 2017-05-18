@@ -1,4 +1,4 @@
-System.import("breakout")
-    .then((breakout)=> {
-        breakout.run();
-    });
+import "../sass/index.scss";
+import { breakout } from "./breakout";
+
+breakout.run();
