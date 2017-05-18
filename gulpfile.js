@@ -7,7 +7,7 @@ let gulp = require("gulp"),
     sass = require("gulp-sass"),
     sourcemaps = require("gulp-sourcemaps");
 
-const BUILD_DIR  = "./build",
+const BUILD_DIR  = "./dist/gulp",
         SRC_JS = "./src/js/**/*.js",
         SRC_HTML = "./src/html/**/*.html",
         SRC_SASS = "./src/sass/**/*.scss";
