@@ -1,5 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/js/index.js',
@@ -49,7 +50,10 @@ module.exports = {
             },
             proxy: 'http://localhost:8080',
             reload: false
-        })
+        }),
+        new CopyWebpackPlugin([
+            { from: './src/html/index.html', to: './dist/webpack/index.html' }
+        ])
     ],
     devtool: 'source-map',
     devServer: {
