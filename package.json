@@ -6,6 +6,8 @@
   "scripts": {
     "build:gulp": "gulp build",
     "serve:gulp": "gulp serve",
+    "build:grunt": "grunt build",
+    "serve:grunt": "grunt serve",
     "build:webpack": "./node_modules/.bin/webpack --progress --color --display-error-details",
     "serve:webpack": "./node_modules/.bin/webpack-dev-server --progress --colors"
   },
