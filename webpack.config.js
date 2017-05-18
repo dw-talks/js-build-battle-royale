@@ -52,7 +52,7 @@ module.exports = {
             reload: false
         }),
         new CopyWebpackPlugin([
-            { from: './src/html/index.html', to: './dist/webpack/index.html' }
+            { from: './src/html/index-webpack.html', to: './dist/webpack/index.html' }
         ])
     ],
     devtool: 'source-map',
