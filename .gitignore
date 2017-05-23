@@ -5,3 +5,4 @@ dist/
 
 # editor
 *.swp
+.vscode

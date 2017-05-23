@@ -4,7 +4,7 @@ let fs = require("fs-extra"),
 
 // constants
 const DIR = {
-    dist: path.join(__dirname, "../build/node"),
+    dist: path.join(__dirname, "../dist/node"),
     style: path.join(__dirname, "../src/sass")
 };
 
@@ -32,8 +32,8 @@ function buildStyle() {
 
 function buildJavaScript() {
     let sourceFile = path.join("src/js/breakout.js"),
-        sourceMapFile = path.join("build/node/breakout.js.map"),
-        transpiledFile = path.join("build/node/breakout.js");
+        sourceMapFile = path.join("dist/node/breakout.js.map"),
+        transpiledFile = path.join("dist/node/breakout.js");
 
     let eslint = new linter();
     let lintResult = eslint.executeOnFiles([sourceFile]);
@@ -53,10 +53,26 @@ function buildJavaScript() {
     }
 }
 
+function buildLibs() {
+    fs.copySync("node_modules/systemjs/dist/system-production.js", "dist/node/system.js");
+}
+
+function buildHtml() {
+    fs.copySync("src/html/index.html", "dist/node/index.html");
+}
+
+function setupBuild() {
+    fs.mkdirs("dist/node");
+}
+
 // build script
 console.log("Starting build...");
 
+setupBuild();
+
 buildStyle();
 buildJavaScript();
+buildLibs();
+buildHtml();
 
 console.log("...Build complete!");
