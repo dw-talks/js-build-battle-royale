@@ -11,7 +11,8 @@
     "serve:gulp": "gulp serve",
     "build:grunt": "grunt build",
     "serve:grunt": "grunt serve",
-    "build:node": "node ./tools/build.js",
+    "build:node": "node ./tools/runner.js build",
+    "serve:node": "node ./tools/runner.js serve",
     "build:webpack": "./node_modules/.bin/webpack --progress --color --display-error-details",
     "serve:webpack": "./node_modules/.bin/webpack-dev-server --progress --colors"
   },
@@ -36,7 +37,7 @@
     "broccoli-lint-eslint": "^3.3.1",
     "broccoli-merge-trees": "^2.0.0",
     "broccoli-sass": "^0.7.0",
-    "browser-sync": "^2.18.8",
+    "browser-sync": "^2.18.12",
     "browser-sync-webpack-plugin": "^1.1.4",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.1",
