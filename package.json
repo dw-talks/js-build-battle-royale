@@ -11,6 +11,7 @@
     "serve:gulp": "gulp serve",
     "build:grunt": "grunt build",
     "serve:grunt": "grunt serve",
+    "build:node": "node ./tools/build.js",
     "build:webpack": "./node_modules/.bin/webpack --progress --color --display-error-details",
     "serve:webpack": "./node_modules/.bin/webpack-dev-server --progress --colors"
   },
@@ -22,6 +23,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
     "babel-plugin-transform-es2015-modules-systemjs": "^6.24.1",
@@ -38,6 +40,7 @@
     "browser-sync-webpack-plugin": "^1.1.4",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.1",
+    "eslint": "^3.19.0",
     "eslint-loader": "^1.7.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "fs-extra": "^3.0.1",
