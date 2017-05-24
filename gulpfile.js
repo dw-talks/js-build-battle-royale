@@ -33,7 +33,7 @@ gulp.task("build:js", ["lint:js","libs:js"], ()=> {
     return gulp.src(SRC_JS)
                 .pipe(sourcemaps.init())
                 .pipe(babel())
-                .pipe(sourcemaps.write("."))
+                .pipe(sourcemaps.write(".", { sourceRoot: "../../src/js" }))
                 .pipe(gulp.dest(BUILD_DIR));
 })
 
