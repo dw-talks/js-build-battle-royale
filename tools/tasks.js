@@ -33,23 +33,17 @@ function buildStyle() {
 
 function buildJavaScript() {
     let sourceFile = path.join("src/js/breakout.js"),
-        indexFile = path.join("src/js/index.js"),
         sourceMapFile = path.join("dist/node/breakout.js.map"),
         transpiledSourceFile = path.join("dist/node/breakout.js");
-        transpiledIndexFile = path.join("dist/node/index.js");
 
-
+    // linter
     let eslint = new linter();
     let lintResult = eslint.executeOnFiles([sourceFile]);
 
     if(!lintResult.errorCount) {
-        let sourceFileResult = babel.transformFileSync(sourceFile);
+        let sourceFileResult = babel.transformFileSync(sourceFile, { sourceMap: "both", sourceRoot: "../../src/js" });
         fs.writeFileSync(transpiledSourceFile, sourceFileResult.code);
         fs.writeFileSync(sourceMapFile, JSON.stringify(sourceFileResult.map));
-
-        let indexFileResult = babel.transformFileSync(indexFile);
-        fs.writeFileSync(transpiledIndexFile, indexFileResult.code);
-        fs.writeFileSync(sourceMapFile, JSON.stringify(indexFileResult.map));
     }
     else {
         console.error("There were eslint errors");
@@ -89,7 +83,7 @@ function serve() {
     let bsOptions = {
         port: 8080,
         ui: {
-            port: 8081
+            port: 8081  
         },
         server: "./dist/node",
         files: [
@@ -97,8 +91,22 @@ function serve() {
                 match: "./src/sass/*.scss",
                 fn: function(event, file) {
                     // https://github.com/sass/node-sass/issues/1894
-                    setTimeout(buildStyle, 500);
-                    return;
+                    buildStyle();
+                    browserSync.reload();
+                }
+            },
+            {
+                match: "./src/js/*.js",
+                fn: function(event, file) {
+                    buildJavaScript();
+                    browserSync.reload();
+                }
+            },
+            {
+                match: "./src/html/*.html",
+                fn: function(event, file) {
+                    buildHtml();
+                    browserSync.reload();
                 }
             }
         ]
